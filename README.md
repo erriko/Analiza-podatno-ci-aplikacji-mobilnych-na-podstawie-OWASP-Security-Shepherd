@@ -1,0 +1,1 @@
+# Analiza-podatno-ci-aplikacji-mobilnych-na-podstawie-OWASP-Security-Shepherd
