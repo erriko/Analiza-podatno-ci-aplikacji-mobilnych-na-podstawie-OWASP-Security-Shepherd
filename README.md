@@ -1,27 +1,28 @@
-## Opis projektu
-###  Jaki jest cel projektu?
-Celem projektu jest analiza podatności aplikacji mobilnych na podstawie narzędzia OWASP Security Shepherd.
-Przeanalizujemy zagadnienia z listy OWASP TOP 10, zbadamy jakie podatności występują w aplikacjach oraz jakie są ich konsekwencje.
-###  Przygotowanie środowiska pracy
+## Project description
+###  What is the aim of this project?
+The aim of the project is to analyze mobile application vulnerabilities based on OWASP Security Shepherd tool. We will analyze issues from OWASP TOP 10 list, examine what vulnerabilities exist in applications and what are their consequences.
+###  Preparing the work environment
 
- - Pobieramy pliki **owaspSecurityShepherd_v3.1_VM.zip** oraz **owaspSecurityShepherd_v3.2.3_MobileDevice.7z** z najnowszej dostępnej wersji na [stronie producenta](https://github.com/OWASP/SecurityShepherd/releases) (na 24.01.2020 jest to 3.1).
- - Pliki rozpakowujemy (np. 7zip) i montujemy obraz pierwszy w programie Oracle VM Virtual Box (zalecany) bądź innym programie do obsługi maszyn wirtualnych. 
- - Zmieniamy ustawienia sieciowe maszyny na tryb "Host Only"
- - Uruchamiamy maszynę, po chwili powinien ukazać nam się wiersz poleceń Linuxa, maszyna poprosi nas o zalogowanie - logujemy się używając loginu ***securityshepherd*** i hasła ***shepherd3.1***
- - Po zalogowaniu, wpisujemy w terminal komendę *ifconfig* i sprawdzamy pierwszy adres na liście i wpisujemy go w przeglądarkę na naszym komputerze (hoście maszyny wirtualnej). 
- - Logujemy się używając loginu ***admin*** i hasła ***password***
- - W zakładce *Admin* przechodzimy pod *Module Management*, a następnie do *Change Module Layout*, w której włączamy tryb *Tournament.* 
+ - Download the files **owaspSecurityShepherd_v3.1_VM.zip** and **owaspSecurityShepherd_v3.2.3_MobileDevice.7z** from the latest available version on [OWASP's website](https://github.com/OWASP/SecurityShepherd/releases) (as of 24.01.2022 it is 3.1).
+ - Unzip the files (e.g. 7zip) and mount the image first in Oracle VM Virtual Box (recommended) or another virtual machine program. 
+ - Change the network settings of the machine to "Host Only" mode
+ - Start the machine, after a moment you should see the Linux command line, the machine will ask you to log in - log in using the login ***securityshepherd*** and password ***shepherd3.1***
+ - After logging in, type the command *ifconfig* into the terminal and check the first address on the list and type it into the browser on your computer (the host of the virtual machine). 
+ - Log in using the ***admin*** login and ***password*** password.
+ - In the *Admin* tab, go under *Module Management* and then to *Change Module Layout*, where we enable *Tournament mode. 
 
-Pierwsza maszyna wirtualna służy do poznawania treści oraz weryfikacji poprawności zadań, teraz przejdziemy do części właściwej.
+The first VM is used to explore the content and verify the correctness of the tasks, now we'll move on to the actual part.
 
- - Importujemy do VM Virtual Box drugi obraz (Mobile Device).
- - Gdy maszyna wystartuje, przechodzimy do ustawień i łączymy maszynę z internetem w trybie *Bridged*.
- - Dodatkowo, "odklikujemy" w zakładce *Wejście* Virtual Boxa integrację myszki. 
- - Maszyna jest gotowa do działania. Aby poruszać się między GUI, a terminalem, używamy skrótu klawiszowego ALT+F1 (terminal), lub ALT+F7 (GUI). 
+ - We import the second image (Mobile Device) into the VM Virtual Box.
+ - When the machine starts, we go into the settings and connect the machine to the Internet in *Bridged* mode.
+ - In addition, we "unclick" in the *Input* tab of the Virtual Box the integration of the mouse. 
+ - The machine is ready to run. To move between the GUI and the terminal, use the keyboard shortcut ALT+F1 (terminal), or ALT+F7 (GUI). 
 
-### Narzędzia i przydatne komendy do wykonania laboratorium.
-Laboratorium możemy w całości wykonać używając tylko narzędzi załączonych w pobranych plikach, zauważ, że w folderze z maszyną mobilną, mamy paczkę z dex2jar, oraz Java Decompiler. 
-Ponadto przydatnymi komendami będą głównie te podstawowe "unixowe" - cd, cat, ls.
+
+
+### Tools and useful commands to complete the lab.
+We can complete the lab using only the tools included in the downloaded files, note that in the folder with the mobile machine, we have a package with dex2jar, and Java Decompiler. 
+Moreover, useful commands will be mainly the basic "unix" ones - cd, cat, ls.
 
 
 
