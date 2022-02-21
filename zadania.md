@@ -14,9 +14,8 @@
 	***cat Members***
 	***cat members-journal***
 7. To the naked eye, the first file seems more interesting - we have data here that could potentially be administrator login data. We check the obtained data in the browser version.
-
 ### Task 2 - Broken Crypto
-1.Our second task is a chat application with a weak encryption algorithm. In the browser, go to the *Corporate/Broken Crypto* tab and read the task description. 
+1. Our second task is a chat application with a weak encryption algorithm. In the browser, go to the *Corporate/Broken Crypto* tab and read the task description. 
 2. We go to the mobile machine and launch the BrokenCrypto app. The app shows us some encrypted messages. Try to notice any relationship in these ciphertexts, if you don't notice any, you can try using some [ciphertext identifier](https://www.boxentriq.com/code-breaking/cipher-identifier). 
 3. The relationship you can notice in these ciphertexts is that they consist of the numbers 0-9 and the letters a-f. This is the first indication that HEX is being used.
 4. Check the messages with [Hex to ASCII converter](https://www.rapidtables.com/convert/number/hex-to-ascii.html), one of the messages will contain the key, which is the answer to the task, which we paste in the browser version. 
