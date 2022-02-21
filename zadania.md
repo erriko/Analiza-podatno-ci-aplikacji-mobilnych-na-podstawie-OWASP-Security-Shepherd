@@ -1,59 +1,56 @@
-### Zadanie 1 - Insecure Data Storage
-1. Jeśli jeszcze tego nie zrobiłeś - uruchom obydwie maszyny wirtualne (jak w instrukcji wyżej).
-2. Naszym pierwszym zadaniem jest odnalezienie źle przechowywanego hasła w bazie danych aplikacji. W przeglądarkowej wersji wchodzimy w zakładkę *Private/Insecure Data Storage*. Czytamy opis zadania. 
-3. Uruchamiamy aplikację na maszynie mobilnej, patrzymy na komunikaty (Databases created).
-4. Jak sam opis podpowiada, dane aplikacji zazwyczaj znajdują się w katalogu 
-/data/data/com.app.***przykladowaaplikacja***, więc przechodzimy do terminalu, i odnajdujemy folder naszej aplikacji *InsecureData*.
+### Task 1 - Insecure Data Storage
+1. If you have not already done so, start both virtual machines (as instructed above).
+2. Our first task is to find the incorrectly stored password in the application database. In the browser version we go to the *Private/Insecure Data Storage* tab. Read the task description. 
+3. Run the application on a mobile machine, look at the messages (Databases created).
+4. As the description itself suggests, the application data is usually located in the directory /data/data/com.app.***exampleapp***, so we go to the terminal, and find the folder of our application *InsecureData*.
 	
-	***cd /data/data*** - przechodzimy do wspomnianego katalogu
-	***ls*** - odnajdujemy naszą aplikację (com.mobshep.insecuredata)
-	***cd com.mobshep.insecuredata*** - wchodzimy w niego
-	***ls*** - sprawdzamy zawartość folderu
-5. W folderze możemy zauważyć kolejne 3 katalogi - ze względu na pokazany wcześniej przez aplikację komunikat, chyba jasne jest, dlaczego wchodzimy do katalogu databases :)
+	***cd /data/data*** - go to the folder mentioned above
+	***ls*** - find our application (com.mobshep.insecuredata)
+	***cd com.mobshep.insecuredata*** - enter it
+	***ls*** - check the contents of the folder
+5. We can see another 3 directories in the folder - because of the message shown earlier by the application, it's probably clear why we enter the databases directory :)
 	***cd databases***
-6. W folderze możemy zauważyć dwa pliki - wyświetlamy obydwa poleceniem *cat*.
+6. We can see two files in the folder - display them both with the *cat* command.
 	***cat Members***
-	***cat Members-journal***
-7. Gołym okiem bardziej ciekawy wydaje się pierwszy plik - mamy tutaj dane, które potencjalnie mogą być danymi logowania administratora. Sprawdzamy uzyskane dane w wersji przeglądarkowej.
+	***cat members-journal***
+7. To the naked eye, the first file seems more interesting - we have data here that could potentially be administrator login data. We check the obtained data in the browser version.
 
-### Zadanie 2 - Broken Crypto
-1. Naszym drugim zadaniem, jest aplikacja czatu ze słabym użytym algorytmem szyfrującym. W przeglądarce wchodzimy w zakładkę *Corporal/Broken Crypto* i czytamy opis zadania. 
-2. Przechodzimy do maszyny mobilnej i uruchamiamy aplikację BrokenCrypto. Aplikacja wyświetla nam kilka zaszyfrowanych wiadomości. Spróbuj zauważyć jakąś zależność w tych szyfrogramach, jeśli nie zauważysz żadnej, możesz spróbować posłużyć się jakimś [identyfikatorem szyfrów](https://www.boxentriq.com/code-breaking/cipher-identifier). 
-3. Zależnością jaką można zauważyć w tych szyfrogramach jest to, że składają się z cyfer 0-9 oraz liter a-f. To już pierwsza przesłanka, że został tu po prostu użyty HEX.
-4. Sprawdzamy wiadomości przy pomocy [konwertera Hex to ASCII](https://www.rapidtables.com/convert/number/hex-to-ascii.html), jedna z wiadomości będzie zawierała klucz, który jest odpowiedzią do zadania, którą wklejamy w przeglądarkowej wersji. 
-### Zadanie 3 - Poor Authentication
-1. Zadanie 3 to niejako inna wersja 3 - poruszać się będziemy również po plikach aplikacji. W przeglądarce wchodzimy w zakładkę *Corporal/Poor authentication* i czytamy opis zadania. 
-2. Jak dowiedzieliśmy się z opisu, aplikacja PoorAuthentication mimo że funkcja logowania jest zabezpieczona, to logi tego co wpisywał użytkownik do aplikacji notatek mogą być przechowywane jawnie. Włączamy aplikację i próbujemy zresetować hasło. Jak możemy zauważyć, potrzebujemy poznać odpowiedzi na dwa pytania - ulubione jedzenie oraz nazwisko panieńskie matki. 
-3. Przechodzimy do terminalu, w którym tak jak w pierwszym zadaniu, przechodzimy do katalogu */data/data*
+### Task 2 - Broken Crypto
+1.Our second task is a chat application with a weak encryption algorithm. In the browser, go to the *Corporate/Broken Crypto* tab and read the task description. 
+2. We go to the mobile machine and launch the BrokenCrypto app. The app shows us some encrypted messages. Try to notice any relationship in these ciphertexts, if you don't notice any, you can try using some [ciphertext identifier](https://www.boxentriq.com/code-breaking/cipher-identifier). 
+3. The relationship you can notice in these ciphertexts is that they consist of the numbers 0-9 and the letters a-f. This is the first indication that HEX is being used.
+4. Check the messages with [Hex to ASCII converter](https://www.rapidtables.com/convert/number/hex-to-ascii.html), one of the messages will contain the key, which is the answer to the task, which we paste in the browser version. 
+### Task 3 - Poor Authentication
+1. Task 3 is a different version of task 1 - we will also move around the application files. In your browser, go to *Corporal/Poor authentication* tab and read the task description. 
+2. As we learned from the description, the PoorAuthentication application, although the login function is secured, the logs of what the user typed into the notes application can be stored openly. We enable the application and try to reset the password. As you can see, we need to know the answers to two questions - favorite food and mother's maiden name. 
+3. Go to the terminal, where as in the first task, we will go to the */data/data* directory
 	***cd /data/data***
-	***ls*** - odnajdujemy pliki naszej aplikacji (com.mobshep.poorauthentication)
-	***cd com.mobshep.poorauthentication*** - przechodzimy do katalogu z plikami
-4. Teraz poleceniami *cd i ls* sprawdzamy zawartości katalogów w naszym folderze, jak możemy zauważyć - folder *files* przechowuje logi aplikacji. 
-5. Sprawdzamy kolejno wszystkie logi aplikacji komendą *cat*. W owych logach możemy poznać odpowiedzi na nurtujące nas pytania i dostać się do konta użytkownika Jack. 
-6. Gdy uda nam się zalogować przy użyciu zresetowanego hasła, ukaże nam się odpowiedź do zadania, którą wpisujemy w wersji przeglądarkowej. 
-### Zadanie 4 - Insecure Data Storage 1
-1. Kolejne zadanie z źle przechowywanymi bazami danych. W przeglądarkowej wersji przechodzimy do *Sergeant/Insecure Data Storage 1* i czytamy opis zadania. 
-2. Uruchamiamy aplikację i zauważamy komunikat (Databases created)
-3. Identycznie jak w pierwszej wersji tego zadania, przechodzimy do terminalu, do folderu /data/data i odnajdujemy naszą aplikację. 
+	***ls*** - find the files of our application (com.mobshep.poorauthentication)
+	***cd com.mobshep.poorauthentication*** - go to file directory
+4. Now use *cd and ls* to check the folder contents, as you can see the *files* folder holds the application logs. 
+5. Check all application logs with *cat* command. In these logs we can find out the answers to our questions and get into the Jack user account. 
+6. when we manage to log in using the reset password, we will see the answer to the task, which we type in the browser version. 
+### Job 4 - Insecure Data Storage 1
+1. Another task with poorly stored databases. In the browser version, we go to *Sergeant/Insecure Data Storage 1* and read the task description. 
+2. Run the application and notice the message (Databases created)
+3. Like in the first version of this task, we go to the terminal, to the /data/data folder and we find our application. 
 	***cd /data/data***
-	***ls*** - odnajdujemy pliki naszej aplikacji
+	***ls*** - find the files of our application
 	***cd com.mobshep.insecuredata1***
-4. Przeszukujemy foldery poleceniami *cd* i *ls*, możemy zauważyć, że znowu w folderze databases znajdują się dwa pliki - tak jak za pierwszym razem, interesować nas będzie głównie plik bez *"-journal"* w nazwie. 
-5. Wykonujemy polecenie ***cat Users***, jednak tym razem sprawa nie wydaje się tak prosta jak za pierwszym razem. Interesujące nas dane wydają się w jakiś sposób zaszyfrowane. Wobec tego przyda nam się również wiedza z zadania drugiego - spróbujemy znaleźć jakąś zależność w tym co widzimy w terminalu. Jeśli nie mamy pomysłu, możemy także posłużyć się [identyfikatorem szyfrów](https://www.boxentriq.com/code-breaking/cipher-identifier). 
-6. Będzie nas oczywiście interesować hasło użytkownika Root, więc zależnością którą możemy zauważyć jest to, że w szyfrogramach pojawia się znak =, który jest często na końcu szyfrogramu w **Base64**. Szyfrogram przepisujemy do [konwertera base64 to ASCII](http://practicalcryptography.com/ciphers/base64-cipher/). Otrzymany w ten sposób plaintext to rozwiązanie naszego zadania. 
-### Zadanie 5 - Reverse Engineering
-1. Teraz zajmiemy się inżynierią odwrotną aplikacji na androida, przechodzimy do zakładki *Corporal/Reverse Engineering 2*, czytamy opis zadania. 
-2. Tym razem nie musimy używać naszej mobilnej maszyny - wszystkie narzędzia znajdują się w rozpakowanym przez nas katalogu który tę maszynę zawiera. Wobec tego do niego wchodzimy.
-3. Najpierw musimy nasz plik .apk zamienić na .jar. Służy do tego narzędzie dex2jar zawarte w naszym katalogu. Rozpakowujemy paczkę dex2jar-2.0.zip, kopiujemy plik ReverseEngineer2.apk i wrzucamy go do rozpakowanej paczki. Uruchamiamy w tym katalogu (tym w którym jest teraz nasz apk i wszystkie pliki dex2jara) terminal/wiersz poleceń i wykonujemy komendę ***d2j-dex2jar.bat ReverseEngineer2.apk*** która skonwertuje nasz apk do pliku .jar
-4. Teraz wychodzimy z tego folderu, i w głównym katalogu z plikami maszyny mobilnej odnajdujemy ***jd-gui-1.4.0***, który uruchamiamy. 
-5. Uruchomi nam się dekompilator java, którym możemy "pobawić się" z naszą aplikacją. Wobec tego klikamy ***File/Open file*** i odnajdujemy przekonwertowany przez nas wcześniej plik. 
-6. Mamy wobec tego zdekompilowany kod naszej aplikacji, w którym możemy teraz poszukać jakichś "słabości" kodu. Przeglądając klasy, możemy trafić na jedną, która w nieodpowiedni sposób przechowuje dane logowania, rozwiązaniem wobec tego jest hasło w owej klasie. 
-### Zadanie 6 - Content Provider Leakage
-1. Do ostatniego zadania wracamy do naszej maszyny mobilnej, zajmiemy się problemem [źle skonfigurowanego Content Providera](https://resources.infosecinstitute.com/topic/android-hacking-security-part-2-content-provider-leakage/). 
-2. W wersji przeglądarkowej przechodzimy do zakładki *Private/Content Provider Leakage* i czytamy opis zadania.
-3. Jest to bardzo proste zadanie, dlatego polecam przeczytać link podany wyżej, żeby zrozumieć co robimy :)
-4. Do uzyskania odpowiedzi wystarczy nam wykonanie komendy 
+4. Search the folders with *cd* and *ls*, you may notice that there are two files in the databases folder again - just like the first time, we'll mainly be interested in the file without the *"-journal "* in its name. 
+5. Run the ***cat Users*** command, but this time it's not as easy as the first time. The data we are interested in seems to be encrypted in some way. Therefore, the knowledge from the second task will also be useful - we will try to find some relation in what we see in the terminal. If we have no idea, we can also use [cipher identifier](https://www.boxentriq.com/code-breaking/cipher-identifier). 
+6. we will of course be interested in the password of the Root user, so the dependency we can see is that in the ciphertext there appears the = sign, which is often at the end of the ciphertext in **Base64**. We rewrite the ciphertext into [base64 to ASCII converter](http://practicalcryptography.com/ciphers/base64-cipher/). The resulting plaintext is the solution to our task. 
+### Task 5 - Reverse Engineering
+1. Now we are going to reverse engineer the android application, go to *Corporate/Reverse Engineering 2* tab, read the task description. 
+2. This time we don't have to use our mobile machine - all the tools are in the folder we unpacked which contains the machine. So we enter it.
+3. First, we need to change our .apk file into a .jar. The dex2jar tool contained in our directory is used for this. Unpack dex2jar-2.0.zip package, copy ReverseEngineer2.apk file and put it into the unpacked package. Run terminal/command line in this folder (the one with your apk and all dex2jar files) and run command ***d2j-dex2jar.bat ReverseEngineer2.apk*** which will convert your apk to .jar file
+4. Now we exit the folder, and in the root directory with the mobile machine files we find ***jd-gui-1.4.0***, which we run. 
+5. Java decompiler will start, which we can use to play with our application. So click ***File/Open file*** and find the file we converted earlier. 
+6. Now we have decompiled code of our application, in which we can look for some "weaknesses" of the code. Looking through the classes, we can find one that stores login information in an inappropriate way, so the solution to this is a password in that class. 
+### Task 6 - Content Provider Leakage
+1. For the last task we are going back to our mobile machine, we are going to deal with [misconfigured Content Provider] issue(https://resources.infosecinstitute.com/topic/android-hacking-security-part-2-content-provider-leakage/). 
+2. In the browser version, we go to the *Private/Content Provider Leakage* tab and read the task description.
+3. This is a very simple task, so I recommend reading the link above to understand what we are doing :)
+4. to get the answer, we just need to execute the command 
 	***adb shell content query --uri content://com.somewhere.hidden.SecretProvider/data***
-klucz, którym odpowie nam adb jest rozwiązaniem zadania. 
-
-
+the key that adb will answer us with is the solution to the task. 
